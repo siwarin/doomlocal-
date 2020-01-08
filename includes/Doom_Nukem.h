@@ -16,8 +16,8 @@
 # include "SDL2/SDL.h"
 # include "SDL2/SDL_ttf.h"
 # include <math.h>
-# define WIDTH 1300
-# define HEIGTH 850
+# define WIDTH 1920
+# define HEIGTH 1080
 
 typedef struct		s_keyboard
 {

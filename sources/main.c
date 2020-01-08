@@ -63,11 +63,8 @@ void	ft_init(t_sdl *sdl) // fonction d'init de SDL avec protection
 		ft_putstr(SDL_GetError());
 		ft_putstr("TTF Error.\n");
 	}
-	sdl->font = TTF_OpenFont("./font/AmazDoomLeft.ttf", 32);
+	sdl->font = TTF_OpenFont("./font/tf2build.ttf", 31);
 	if (!sdl->font)
-		printf("TTF_OpenFont : %s\n", TTF_GetError());
-	sdl->font2 = TTF_OpenFont("./font/AmazDoomLeft.ttf", 34);
-	if (!sdl->font2)
 		printf("TTF_OpenFont : %s\n", TTF_GetError());
 }
 
@@ -89,7 +86,6 @@ void	Doom_Nukem(t_sdl *sdl)
 			}
 			editdraw(sdl);
 			SDL_UpdateWindowSurface(sdl->win);
-			//apply_surface(0, 200, sdl->mes, sdl->ren);
 			sdl->f.count -= sdl->f.step;
 		}
 	}

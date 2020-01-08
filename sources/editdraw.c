@@ -12,7 +12,7 @@
 
 #include "../includes/Doom_Nukem.h"
 
-void	drawsquare(t_sdl *sdl)
+void	drawmenu(t_sdl *sdl)
 {
 	sdl->color = BLACK;
 	sdl->cy = 10;
@@ -40,6 +40,25 @@ void	drawsquare(t_sdl *sdl)
 	}
 }
 
+void	drawsquare(t_sdl *sdl, int x, int y)
+{
+	int i;
+	int j;
+
+	sdl->color = GRAY;
+	j = y;
+	while (j != y + 30)
+	{
+		i = x;
+		while (i != x + 30)
+		{
+			pixel(sdl, i, j);
+			i++;
+		}
+		j++;
+	}
+}
+
 void	editdraw(t_sdl *sdl)
 {
 	sdl->color = GRAY;
@@ -54,13 +73,49 @@ void	editdraw(t_sdl *sdl)
 		}
 		sdl->cx++;
 	}
-	drawsquare(sdl);
+	drawmenu(sdl);
 	sdl->fc.r = 0xFF;
 	sdl->fc.g = 0xA5;
 	sdl->fc.b = 0x00;
 	sdl->fc.a = 0xFF;
-	sdl->mes = TTF_RenderText_Solid(sdl->font, "Test", sdl->fc);
+	sdl->mes = TTF_RenderText_Solid(sdl->font, "Map editor", sdl->fc);
 	if (sdl->mes == NULL)
 		return ;
-	apply_surface((WIDTH / 1.25) , 20, sdl->mes, sdl->ren);
+	apply_surface((WIDTH / 1.45), 20, sdl->mes, sdl->ren);
+	sdl->mes = TTF_RenderText_Solid(sdl->font, "Textures", sdl->fc);
+	if (sdl->mes == NULL)
+		return ;
+	apply_surface((WIDTH / 1.45), 65, sdl->mes, sdl->ren);
+	sdl->mes = TTF_RenderText_Solid(sdl->font, "Items", sdl->fc);
+	if (sdl->mes == NULL)
+		return ;
+	apply_surface((WIDTH / 1.45), 165, sdl->mes, sdl->ren);
+	sdl->mes = TTF_RenderText_Solid(sdl->font, "Ennemies", sdl->fc);
+	if (sdl->mes == NULL)
+		return ;
+	apply_surface((WIDTH / 1.45), 265, sdl->mes, sdl->ren);
+
+	drawsquare(sdl, WIDTH / 1.45, 100);
+	drawsquare(sdl, (WIDTH / 1.45) + 86, 100);
+	drawsquare(sdl, (WIDTH / 1.45) + 172, 100);
+	drawsquare(sdl, (WIDTH / 1.45) + 258, 100);
+	drawsquare(sdl, (WIDTH / 1.45) + 344, 100);
+	drawsquare(sdl, (WIDTH / 1.45) + 430, 100);
+	drawsquare(sdl, (WIDTH / 1.45) + 516, 100);
+
+	drawsquare(sdl, WIDTH / 1.45, 205);
+	drawsquare(sdl, (WIDTH / 1.45) + 86, 205);
+	drawsquare(sdl, (WIDTH / 1.45) + 172, 205);
+	drawsquare(sdl, (WIDTH / 1.45) + 258, 205);
+	drawsquare(sdl, (WIDTH / 1.45) + 344, 205);
+	drawsquare(sdl, (WIDTH / 1.45) + 430, 205);
+	drawsquare(sdl, (WIDTH / 1.45) + 516, 205);
+
+	drawsquare(sdl, WIDTH / 1.45, 310);
+	drawsquare(sdl, (WIDTH / 1.45) + 86, 310);
+	drawsquare(sdl, (WIDTH / 1.45) + 172, 310);
+	drawsquare(sdl, (WIDTH / 1.45) + 258, 310);
+	drawsquare(sdl, (WIDTH / 1.45) + 344, 310);
+	drawsquare(sdl, (WIDTH / 1.45) + 430, 310);
+	drawsquare(sdl, (WIDTH / 1.45) + 516, 310);
 }
